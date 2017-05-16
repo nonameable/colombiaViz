@@ -22,7 +22,6 @@ export class App extends Component {
   }
 
   getProjection(){
-    console.log("is called get projection");
     return this.projection;
   }
 
@@ -51,11 +50,13 @@ export class App extends Component {
         <h2>Results:</h2>
         {this.props && this.props.tweets ?
           <div>
+          <Overlay getProjection={this.getProjection} tweets={this.props.tweets}/>
           <ColombiaMap setProjection={this.setProjection}
             data={{RISARALDA:10}}
           />
-          <Overlay getProjection={this.getProjection}/>
-          <TweetsResults tweets={this.props.tweets}/></div> :
+
+          <TweetsResults tweets={this.props.tweets}/>
+          </div> :
           <p>Enter a query</p>
         }
 

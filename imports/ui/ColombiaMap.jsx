@@ -30,9 +30,9 @@ export default class ColombiaMap extends Component {
 		  // Center the Map in Colombia
 		  .center([-74, 4.5])
 		  .translate([width / 2, height / 2]);
-    console.log("projection del mapa");
-    console.log(this.projection);
-    console.log("projection del mapa");
+    //console.log("projection del mapa");
+    //console.log(this.projection);
+    //console.log("projection del mapa");
     this.props.setProjection(this.projection); // passed to App, its father component
 		var path = d3.geo.path()
 		  .projection(this.projection);

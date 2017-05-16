@@ -36,11 +36,17 @@ if (Meteor.isServer) {
         // Remove all the tweets
         Tweets.remove({});
       }
-      stream = client.stream("statuses/filter", {track: query, coordinates:"-75.410156,-71.71875,6.173324"});
+      let coordSF = '-122.75,36.8,-121.75,37.8,-74,40,-73,41';
+      let coordCol = '-79.12,-4.23,-66.85,12.59';
+      stream = client.stream("statuses/filter", {track: query, locations:coordCol});
       stream.on("data", Meteor.bindEnvironment(function(tweet) {
         // console.log(tweet.text);
         // resolve(tweet);
-        Tweets.insert(tweet);
+        if(tweet.coordinates !== null){
+
+          Tweets.insert(tweet);
+        }
+
       }));
 
       stream.on("error", function(error) {
