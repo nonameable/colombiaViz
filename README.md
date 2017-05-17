@@ -12,7 +12,8 @@ App that shows a map in real time of all the tweets with precise geo location (e
 ## Creative Differentiator
 
 
-*  Create a clear readme that will allow me to run it, explains what you did, and specifies the creative differentiator
+*  Added the name of the country right next to its geolocation for better visualization
+*  Added two stats: A rate of Colombian tweets over the total of tweets and also which user who tweeted since the stream started has the most followers. By default, this user is duto_guerra.
 
 ## To run the project
 
