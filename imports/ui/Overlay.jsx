@@ -18,7 +18,7 @@ export default class Overlay extends Component {
 
 	}
   componentWillUpdate(nextProps) {
-    console.log("WILL UPDATE runs");
+    //console.log("WILL UPDATE runs");
     let projection = nextProps.getProjection();
     let canvas = this.canvas;
     //let canvas = document.getElementById('overlayq');
@@ -27,18 +27,18 @@ export default class Overlay extends Component {
     ctx.beginPath();
     ctx.fillStyle = "rgb(200,0,0)";
     nextProps.tweets.forEach((t,i) => {
-      console.log(t);
+      //console.log(t);
       let realCoordinates = t.coordinates.coordinates;
-      console.log("real coordinates");
+      //console.log("real coordinates");
       //console.log(realCoordinates);
       //console.log(projection);
       mapCoordinates = projection(realCoordinates);
-      console.log(mapCoordinates);
+      //console.log(mapCoordinates);
       let x = mapCoordinates[0];
       let r = 5;
       let y = mapCoordinates[1];
       //console.log("coordinates: X: " + x + " and Y: " + y);
-      //ctx.fillText(t.user.screen_name, x+20,y+r/2);
+      ctx.fillText(t.place.country, x+20,y+r/2);
       ctx.moveTo(x,y);
       ctx.arc(x,y,r,0,2*Math.PI);
     });
